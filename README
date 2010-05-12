@@ -1,0 +1,13 @@
+LatexPlugin
+===========
+
+Plugin to insert LaTeX into a wiki page.
+
+
+Example
+=======
+
+\latex a_5\
+
+
+Copyright (c) 2010 Florian Schwab, released under the GPLv3 license
