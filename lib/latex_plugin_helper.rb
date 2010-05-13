@@ -39,11 +39,11 @@ class LatexPluginHelper
         f.close
         `cd "#{Rails.root}/tmp/latex/" && #{LATEX_BIN} -halt-on-error -interaction=nonstopmode "#{Rails.root}/tmp/latex/#{hash}.tex"`
         if $? != 0
-          raise $?
+          raise "#{$?}"
         end
         `#{DVIPNG_BIN} -q -T tight -bg Transparent -Q 10 -o "#{Rails.root}/public/latex/#{hash}.png" "#{Rails.root}/tmp/latex/#{hash}.dvi"`
         if $? != 0
-          raise $?
+          raise "#{$?}"
         end
         unless File.exists?("#{Rails.root}/public/latex/#{hash}.png")
           raise 'no image created'
