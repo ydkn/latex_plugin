@@ -50,7 +50,7 @@ class LatexPluginHelper
         end
         FileUtils.rm(Dir.glob("#{Rails.root}/tmp/latex/#{hash}.*"))
       end
-      "<img class=\"latex_inline\" src=\"/latex/#{hash}.png\" alt=\"#{input.gsub(/"/, '&quot')}\" />"
+      "<img class=\"latex_inline\" src=\"/latex/#{hash}.png\" alt=\"#{h(input)}\" />"
     end
 
   end
