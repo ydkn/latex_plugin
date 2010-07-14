@@ -23,9 +23,16 @@ Raki::Plugin.register :latex do
   version '0.1'
 
   add_stylesheet '/plugin_assets/latex_plugin/stylesheets/latex.css'
+  
+  include LatexPluginHelper
 
-  execute do |params, body, context|
-    LatexPluginHelper.convert(body)
+  execute do
+    unless File.exist? img_filename
+      write_tex_file
+      compile
+    end
+    
+    "<img class=\"latex_inline\" src=\"/latex/#{hash}.png\" alt=\"#{h body}\" />"
   end
 
 end
